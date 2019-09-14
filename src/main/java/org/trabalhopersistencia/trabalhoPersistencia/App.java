@@ -15,8 +15,6 @@ public class App
     {
     	
     	Infracao inf1 = new Infracao(1);
-    	Infracao inf2 = new Infracao(2);
-    	Infracao inf3 = new Infracao(3);
     	
     	
     	try {
@@ -25,8 +23,6 @@ public class App
     		Transaction transaction = session.beginTransaction();
     		
     		session.save(inf1);
-    		session.save(inf2);
-    		session.save(inf3);
     		
     		transaction.commit();
     		

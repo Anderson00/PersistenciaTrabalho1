@@ -14,7 +14,7 @@ public class App
     public static void main( String[] args )
     {
     	
-    	Infracao inf1 = new Infracao(1);
+    	Infracao inf1 = new Infracao(10);
     	
     	
     	try {

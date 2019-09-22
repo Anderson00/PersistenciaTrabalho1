@@ -3,7 +3,10 @@ package org.trabalhopersistencia.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_veiculo_marca")
@@ -15,6 +18,9 @@ public class VeiculoMarca {
 	
 	@Column(name = "marca")
 	private String marca;
+	
+	@OneToMany(mappedBy = "codVeiculoMarca")
+	private List<MarcaAuto> marcaAuto;
 	
 	public VeiculoMarca() {
 		

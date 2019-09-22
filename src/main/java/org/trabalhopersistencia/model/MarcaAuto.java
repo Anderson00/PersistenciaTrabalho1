@@ -2,6 +2,9 @@ package org.trabalhopersistencia.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -9,15 +12,17 @@ import javax.persistence.Table;
 public class MarcaAuto {
 
 	//FK tbl_ai_valido/tbl_ai_pendente/tbl_ai_cancelado
+	@Id
 	@Column(name = "num_auto")
-	String numAuto;
+	private String numAuto;
 	
 	//FK tbl_veiculo_marca
-	@Column(name = "cod_veiculo_marca")
-	int codVeiculoMarca;
+	@ManyToOne
+	@JoinColumn(name = "cod_veiculo_marca")
+	private VeiculoMarca codVeiculoMarca;
 	
 	@Column(name = "nome_marca")
-	String nomeMarca;
+	private String nomeMarca;
 
 	public String getNumAuto() {
 		return numAuto;
@@ -27,11 +32,11 @@ public class MarcaAuto {
 		this.numAuto = numAuto;
 	}
 
-	public int getCodVeiculoMarca() {
+	public VeiculoMarca getCodVeiculoMarca() {
 		return codVeiculoMarca;
 	}
 
-	public void setCodVeiculoMarca(int codVeiculoMarca) {
+	public void setCodVeiculoMarca(VeiculoMarca codVeiculoMarca) {
 		this.codVeiculoMarca = codVeiculoMarca;
 	}
 

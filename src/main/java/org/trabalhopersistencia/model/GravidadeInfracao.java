@@ -14,10 +14,10 @@ public class GravidadeInfracao {
 	private int idGravidadeInfracao;
 	
 	@Column(name = "qtd_pontos")
-	private String qtdPontos;
+	private int qtdPontos;
 	
 	@Column(name = "gravidade")
-	private int gravidade;
+	private String gravidade;
 	
 	public GravidadeInfracao() {
 		
@@ -35,19 +35,19 @@ public class GravidadeInfracao {
 		this.idGravidadeInfracao = idGravidadeInfracao;
 	}
 
-	public String getQtdPontos() {
+	public int getQtdPontos() {
 		return qtdPontos;
 	}
 
-	public void setQtdPontos(String qtdPontos) {
+	public void setQtdPontos(int qtdPontos) {
 		this.qtdPontos = qtdPontos;
 	}
 
-	public int getGravidade() {
+	public String getGravidade() {
 		return gravidade;
 	}
 
-	public void setGravidade(int gravidade) {
+	public void setGravidade(String gravidade) {
 		this.gravidade = gravidade;
 	}
 	

@@ -1,119 +1,175 @@
 package org.trabalhopersistencia.model;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "tbl_infracao")
 public class Infracao {
 	@Id
-	@Column(name = "id_detran_endereco")
-	private int id;
-	
-	@Column(name = "nit")
-	private int nit;
-	
-	//FK
-	@Column(name = "fk_id_infracao")
-	private int idInfracao;
-	
 	@Column(name = "cod_infracao")
 	private String codInfracao;
 	
-	@Column(name = "marca_modelo_veiculo")
-	private String marcaModeloVeiculo;
+	@Column(name = "des_infracao")
+	@Type(type = "text")
+	private String desInfracao;
 	
-	@Column(name = "tipo_veiculo")
-	private String tipoVeiculo;
+	@Column(name = "des_abreviada")
+	private String desAbreviada;
 	
-	@Column(name = "especie_veiculo")
-	private String especieVeiculo;
+	@Column(name = "enquadramento")
+	private String enquadramento;
 	
-	@Column(name = "cidade")
-	private String cidade;
-		
-	@Column(name = "data_atualizacao")
-	private Date dataAtualizacao;
+	@Column(name = "valor")
+	private double valor;
+	
+	@Column(name = "qtd_pontos")
+	private int qtdPontos;
+	
+	@Column(name = "tipo_medicao")
+	private String tipoMediacao;
+	
+	@Column(name = "responsavel")
+	private String responsavel;
+	
+	@Column(name = "fracao")
+	private double fracao;
+	
+	@Column(name = "valor_adicional")
+	private double valorAdicional;
+	
+	@Column(name = "dat_fimvigencia")
+	private Date datFimVigencia;
+	
+	@Column(name = "dat_iniciovigencia")
+	private Date datInicioVigencia;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_id_observacaoinfracao")
+	private ObservacaoInfracao fkIdObservacaoInfracao;
 	
 	public Infracao() {
 		
 	}
 	
-	public Infracao(int id) {
-		this.id = id;
+	public Infracao(String id) {
+		this.codInfracao = id;
 	}
 
-	public int getNit() {
-		return nit;
-	}
-
-	public void setNit(int nit) {
-		this.nit = nit;
-	}
-
-	public int getIdInfracao() {
-		return idInfracao;
-	}
-
-	public void setIdInfracao(int idInfracao) {
-		this.idInfracao = idInfracao;
-	}
-
-	public String getCodInfracao() {
+	public String getId() {
 		return codInfracao;
 	}
 
-	public void setCodInfracao(String codInfracao) {
-		this.codInfracao = codInfracao;
+	public void setId(String id) {
+		this.codInfracao = id;
 	}
 
-	public String getMarcaModeloVeiculo() {
-		return marcaModeloVeiculo;
+	public String getDesInfracao() {
+		return desInfracao;
 	}
 
-	public void setMarcaModeloVeiculo(String marcaModeloVeiculo) {
-		this.marcaModeloVeiculo = marcaModeloVeiculo;
+	public void setDesInfracao(String desInfracao) {
+		this.desInfracao = desInfracao;
 	}
 
-	public String getTipoVeiculo() {
-		return tipoVeiculo;
+	public String getDesAbreviada() {
+		return desAbreviada;
 	}
 
-	public void setTipoVeiculo(String tipoVeiculo) {
-		this.tipoVeiculo = tipoVeiculo;
+	public void setDesAbreviada(String desAbreviada) {
+		this.desAbreviada = desAbreviada;
 	}
 
-	public String getEspecieVeiculo() {
-		return especieVeiculo;
+	public String getEnquadramento() {
+		return enquadramento;
 	}
 
-	public void setEspecieVeiculo(String especieVeiculo) {
-		this.especieVeiculo = especieVeiculo;
+	public void setEnquadramento(String enquadramento) {
+		this.enquadramento = enquadramento;
 	}
 
-	public String getCidade() {
-		return cidade;
+	public double getValor() {
+		return valor;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
-	public Date getDataAtualizacao() {
-		return dataAtualizacao;
+	public int getQtdPontos() {
+		return qtdPontos;
 	}
 
-	public void setDataAtualizacao(Date dataAtualizacao) {
-		this.dataAtualizacao = dataAtualizacao;
+	public void setQtdPontos(int qtdPontos) {
+		this.qtdPontos = qtdPontos;
 	}
 
-	public int getId() {
-		return id;
+	public String getTipoMediacao() {
+		return tipoMediacao;
 	}
-	
+
+	public void setTipoMediacao(String tipoMediacao) {
+		this.tipoMediacao = tipoMediacao;
+	}
+
+	public double getFracao() {
+		return fracao;
+	}
+
+	public void setFracao(double fracao) {
+		this.fracao = fracao;
+	}
+
+	public double getValorAdicional() {
+		return valorAdicional;
+	}
+
+	public void setValorAdicional(double valorAdicional) {
+		this.valorAdicional = valorAdicional;
+	}
+
+	public Date getDatFimVigencia() {
+		return datFimVigencia;
+	}
+
+	public void setDatFimVigencia(Date datFimVigencia) {
+		this.datFimVigencia = datFimVigencia;
+	}
+
+	public Date getDatInicioVigencia() {
+		return datInicioVigencia;
+	}
+
+	public void setDatInicioVigencia(Date datInicioVigencia) {
+		this.datInicioVigencia = datInicioVigencia;
+	}
+
+	public ObservacaoInfracao getFkIdObservacaoInfracao() {
+		return fkIdObservacaoInfracao;
+	}
+
+	public void setFkIdObservacaoInfracao(ObservacaoInfracao fkIdObservacaoInfracao) {
+		this.fkIdObservacaoInfracao = fkIdObservacaoInfracao;
+	}
+
+	public String getResponsavel() {
+		return responsavel;
+	}
+
+	public void setResponsavel(String responsavel) {
+		this.responsavel = responsavel;
+	}
 }

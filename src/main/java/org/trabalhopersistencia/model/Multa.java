@@ -1,8 +1,12 @@
 package org.trabalhopersistencia.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +21,7 @@ public class Multa {
 	private double valMulta;
 	
 	@Column(name = "dat_pagamento")
-	private int datPagamento;
+	private Date datPagamento;
 	
 	//FK tbl_ai_valido
 	@Column(name = "num_auto")
@@ -36,8 +40,9 @@ public class Multa {
 	private double valPago;
 	
 	//FK tbl_tipovinculo
-	@Column(name = "cod_tipovinculo")
-	private int codTipoVinculo;
+	@ManyToOne
+	@JoinColumn(name = "cod_tipovinculo")
+	private TipoVinculo codTipoVinculo;
 	
 	@Column(name = "caminho_img_auto")
 	private String caminhoImgAuto;
@@ -66,11 +71,11 @@ public class Multa {
 		this.valMulta = valMulta;
 	}
 
-	public int getDatPagamento() {
+	public Date getDatPagamento() {
 		return datPagamento;
 	}
 
-	public void setDatPagamento(int datPagamento) {
+	public void setDatPagamento(Date datPagamento) {
 		this.datPagamento = datPagamento;
 	}
 
@@ -114,11 +119,11 @@ public class Multa {
 		this.valPago = valPago;
 	}
 
-	public int getCodTipoVinculo() {
+	public TipoVinculo getCodTipoVinculo() {
 		return codTipoVinculo;
 	}
 
-	public void setCodTipoVinculo(int codTipoVinculo) {
+	public void setCodTipoVinculo(TipoVinculo codTipoVinculo) {
 		this.codTipoVinculo = codTipoVinculo;
 	}
 

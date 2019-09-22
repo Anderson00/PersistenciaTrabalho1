@@ -5,13 +5,12 @@
     <session-factory>
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/persist</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/persist2</property>
         <property name="connection.username">trabalho</property>
         <property name="connection.password">123</property>
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size">1</property>
         <!-- Select our SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>
         <!-- Set the current session context -->
@@ -21,5 +20,13 @@
         <!-- dbcp connection pool configuration -->
         
         <mapping class="org.trabalhopersistencia.model.Infracao"/>
+        <mapping class="org.trabalhopersistencia.model.ObservacaoInfracao"/>
+        <mapping class="org.trabalhopersistencia.model.StatusDetran"/>
+        <mapping class="org.trabalhopersistencia.model.GravidadeInfracao"/>
+        <mapping class="org.trabalhopersistencia.model.VeiculoMarca"/>
+        <mapping class="org.trabalhopersistencia.model.MarcaAuto"/>
+        <mapping class="org.trabalhopersistencia.model.TipoVinculo"/>
+        
+        <mapping class="org.trabalhopersistencia.model.Multa"/>
     </session-factory>
 </hibernate-configuration>
